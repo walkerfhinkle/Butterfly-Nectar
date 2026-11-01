@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Butterfly Nectar — Small-batch skin nourishment</title>
+<meta name="description" content="Butterfly Nectar is a small-batch body butter handmade by Imani, formulated to heal and nourish dry, thirsty skin.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<noscript><style>.view[hidden] { display: block; }</style></noscript>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#home" class="brand">
+      <img src="assets/logo-icon.png" alt="Butterfly Nectar icon">
+      <span class="brand-word">Butterfly Nectar<span>HANDMADE SKIN CARE</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary-nav" id="primary-nav">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#safety">Ingredients &amp; Safety</a>
+      <!-- Hidden for now (where-to-find-it): <a href="#availability" class="nav-mobile-cta">Find it near you</a> -->
+    </nav>
+    <div class="nav-cta">
+      <!-- Hidden for now (where-to-find-it): <a href="#availability" class="btn btn-ghost">Find it near you</a> -->
+      <button class="cart-toggle" id="cart-toggle" aria-label="Open cart" aria-expanded="false" aria-controls="cart-drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <div class="view" data-view="home" data-title="Butterfly Nectar — Small-batch skin nourishment" hidden>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Nourish the skin.<br>Watch it bloom.</h1>
+        <p class="lede">Butterfly Nectar is a small-batch body butter, thoughtfully handcrafted in limited runs to heal dry patches and leave skin feeling soft, calm, and quietly glowing.</p>
+        <div class="hero-actions">
+          <a href="#about" class="btn btn-primary">Discover the Nectar</a>
+          <!-- Hidden for now (where-to-find-it): <a href="#availability" class="btn-line">See where to find it</a> -->
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <img class="leaf leaf-hero-a" src="assets/decor/leaf-2.5.png" alt="">
+        <img class="leaf leaf-hero-b" src="assets/decor/leaf-1.png" alt="">
+        <img class="hero-jar" src="assets/photos/hero-jar.png" alt="Jar of Butterfly Nectar body butter">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="band-paper">
+    <div class="wrap intro-grid">
+      <div>
+        <h2>What is Butterfly Nectar?</h2>
+        <p class="lede mt-0">A rich, fast-absorbing body butter built around skin-loving ingredients like shea butter and sweet almond oil, hand-mixed in small batches so every jar stays fresh and consistent.</p>
+        <h3>A little goes a long way!</h3>
+        <div class="chip-row" aria-label="Ingredient highlights">
+          <span class="chip gold">Tree Nuts</span>
+          <span class="chip gold">Coconut</span>
+          <span class="chip gold">Sunflower Seed Oil</span>
+          <span class="chip gold">Essential Oils</span>
+          <span class="chip gold">Tea Tree Oil</span>
+          <span class="chip gold">Turmeric</span>
+        </div>
+      </div>
+      <div>
+        <div class="photo-grid" aria-label="Product photography">
+          <div class="ph-tile">
+            <img src="assets/photos/product-tile.jpg" alt="Imani holding a jar of Butterfly Nectar body butter, with a drop on her hand">
+          </div>
+          <div class="ph-tile">
+            <img src="assets/photos/texture-tile.jpg" alt="Close-up of smooth, glowing skin on a shoulder and hand">
+          </div>
+          <div class="ph-tile">
+            <img src="assets/photos/lifestyle-tile.jpg" alt="Two smiling customers embracing, glowing skin">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <img class="leaf leaf-testi" src="assets/decor/leaf-2.png" alt="" aria-hidden="true">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What people are saying</h2>
+        <p class="lede mt-0">Real words from real customers.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card featured">
+          <blockquote>"I keep it in my bag for my hands and after shower/bath, I use it for my feet. Girl, the first time I put it on my legs and feet in the morning, I came home and changed out of work clothes, felt my legs and was confused like, 'why my legs feel like silk?'. Then I remembered why LOL."</blockquote>
+          <div class="testi-attrib">Doris M.</div>
+        </div>
+        <div class="testi-card">
+          <blockquote>"Girl, it's gone. I love it... I use it daily!"</blockquote>
+          <div class="testi-attrib">Tai H.</div>
+        </div>
+        <div class="testi-card">
+          <blockquote>"You really don't need a lot when you put it on! My thumb was my main focus and it doesn't look as rough as it did."</blockquote>
+          <div class="testi-attrib">My'Onna J.</div>
+        </div>
+        <!-- Add additional testimonials here. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER ONLINE -->
+  <section class="band-paper order-band">
+    <div class="wrap center">
+      <h2>Order online</h2>
+      <p class="lede center" style="margin:0 auto 1.4em;">Choose your jar size and add it to your cart. Checkout is handled securely, and Imani fulfills every order personally. Prefer to order directly? She's always happy to hear from you by email.</p>
+      <p style="margin:0 auto 1.2em;"><a href="#products" class="btn btn-primary">Shop for Nectar</a></p>
+      <p class="signup-note center" style="margin:0 auto;">Email: <a href="mailto:shopbutterflynectar@gmail.com" class="btn-line">shopbutterflynectar@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!--
+  WHERE TO FIND IT (hidden for now)
+  <section id="availability">
+    <img class="leaf leaf-avail" src="assets/decor/leaf-1.png" alt="" aria-hidden="true">
+    <div class="wrap avail-grid">
+      <div>
+        <div class="section-head">
+          <h2>Where to find it</h2>
+          <p class="lede mt-0">Butterfly Nectar is currently sold in person. Here's where to pick up a jar today.</p>
+        </div>
+        <ul class="stockist-list">
+          <li>
+            <div class="stack">
+              <span class="stockist-name">[Placeholder] Noblesville Farmers Market</span>
+              <span class="stockist-meta">Saturdays, 9am to 1pm, Seasonal</span>
+            </div>
+            <span class="stockist-tag">In person</span>
+          </li>
+          <li>
+            <div class="stack">
+              <span class="stockist-name">[Placeholder] Corner apothecary / boutique name</span>
+              <span class="stockist-meta">Add address once confirmed</span>
+            </div>
+            <span class="stockist-tag">In store</span>
+          </li>
+          <li>
+            <div class="stack">
+              <span class="stockist-name">[Placeholder] Pop-up / craft fair</span>
+              <span class="stockist-meta">Add next event date</span>
+            </div>
+            <span class="stockist-tag">Upcoming</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- CLOSING CTA -->
+  <section class="band-navy cta-band">
+    <div class="wrap center">
+      <h2>Made in small batches, meant to be felt.</h2>
+      <p class="lede center" style="margin:0 auto 2em;">Read the full ingredient list, how to use it, and Imani's story behind Butterfly Nectar.</p>
+      <a href="#about" class="btn btn-primary">Meet Imani</a>
+      <div class="cta-divider" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="view" data-view="products" data-title="Shop the Nectar — Butterfly Nectar" hidden>
+  <!-- PRODUCTS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Shop the Nectar</h2>
+        <p class="lede mt-0">The same hand-mixed body butter in four jar sizes. Pick the one that fits your routine.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-photo">
+            <!-- When the photo is ready, replace the two labels below with: <img src="assets/photos/products/1oz.jpg" alt="1 oz jar of Butterfly Nectar body butter"> -->
+            <span class="product-photo-label">1 oz product photo</span>
+            <span class="product-photo-size">Square 1:1 &middot; 1200 &times; 1200 px</span>
+          </div>
+          <h3>1 oz Jar</h3>
+          <p class="product-desc">Easy for a bag or a purse, and works wonders for your lips or hands.</p>
+          <div class="product-foot">
+            <div class="product-price-row">
+              <div class="product-price">$9.30<span>$9.30 / oz</span></div>
+              <div class="qty-stepper" role="group" aria-label="Quantity">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity">&minus;</button>
+                <span class="qty-value" aria-live="polite">1</span>
+                <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <button class="btn btn-primary shop-add" data-id="bn-1oz">Add to cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-photo">
+            <!-- When the photo is ready, replace the two labels below with: <img src="assets/photos/products/2oz.jpg" alt="2 oz jar of Butterfly Nectar body butter"> -->
+            <span class="product-photo-label">2 oz product photo</span>
+            <span class="product-photo-size">Square 1:1 &middot; 1200 &times; 1200 px</span>
+          </div>
+          <h3>2 oz Jar</h3>
+          <p class="product-desc">A desk-drawer or gym-bag companion for hands, elbows, and dry patches on the go.</p>
+          <div class="product-foot">
+            <div class="product-price-row">
+              <div class="product-price">$14.88<span>$7.44 / oz</span></div>
+              <div class="qty-stepper" role="group" aria-label="Quantity">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity">&minus;</button>
+                <span class="qty-value" aria-live="polite">1</span>
+                <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <button class="btn btn-primary shop-add" data-id="bn-2oz">Add to cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-photo">
+            <!-- When the photo is ready, replace the two labels below with: <img src="assets/photos/products/4oz.jpg" alt="4 oz jar of Butterfly Nectar body butter"> -->
+            <span class="product-photo-label">4 oz product photo</span>
+            <span class="product-photo-size">Square 1:1 &middot; 1200 &times; 1200 px</span>
+          </div>
+          <h3>4 oz Jar</h3>
+          <p class="product-desc">The everyday size. A bathroom-counter favorite for hands, arms, and legs.</p>
+          <div class="product-foot">
+            <div class="product-price-row">
+              <div class="product-price">$21.39<span>$5.35 / oz</span></div>
+              <div class="qty-stepper" role="group" aria-label="Quantity">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity">&minus;</button>
+                <span class="qty-value" aria-live="polite">1</span>
+                <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <button class="btn btn-primary shop-add" data-id="bn-4oz">Add to cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-photo">
+            <!-- When the photo is ready, replace the two labels below with: <img src="assets/photos/products/8oz.jpg" alt="8 oz jar of Butterfly Nectar body butter"> -->
+            <span class="product-photo-label">8 oz product photo</span>
+            <span class="product-photo-size">Square 1:1 &middot; 1200 &times; 1200 px</span>
+          </div>
+          <h3>8 oz Jar</h3>
+          <p class="product-desc">Our best value. Made for full-body routines, sharing, or keeping a spare on hand.</p>
+          <div class="product-foot">
+            <div class="product-price-row">
+              <div class="product-price">$27.90<span>$3.49 / oz</span></div>
+              <div class="qty-stepper" role="group" aria-label="Quantity">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity">&minus;</button>
+                <span class="qty-value" aria-live="polite">1</span>
+                <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <button class="btn btn-primary shop-add" data-id="bn-8oz">Add to cart</button>
+          </div>
+        </article>
+      </div>
+      <p class="product-note center">Checkout is handled securely by Stripe, and Imani fulfills every order personally. Orders are processed within 72 hours of payment. Questions, or prefer to order directly? Email <a href="mailto:shopbutterflynectar@gmail.com" class="btn-line">shopbutterflynectar@gmail.com</a></p>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="view" data-view="about" data-title="About Imani — Butterfly Nectar" hidden>
+  <!-- ABOUT -->
+  <section class="about-top">
+    <div class="wrap">
+      <h2 class="display about-title">The hands, and the<br>habit, behind every jar.</h2>
+    </div>
+  </section>
+
+  <section class="about-body">
+    <div class="wrap about-grid">
+      <div class="portrait-frame">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <span class="ph-label">Portrait of Imani</span>
+        <span class="ph-sub">Add a warm, natural-light photo here</span>
+      </div>
+      <div>
+        <h2 class="mt-0">Meet Imani</h2>
+        <p class="lede serif-italic">Before the wings, there's a season of change: quiet, slow, easy to miss... but unmistakable once it's done. That's the story behind Butterfly Nectar.</p>
+        <p>I started Butterfly Nectar after years of struggling with dry skin caused by eczema. I spent the better part of a year perfecting the formula before finally landing on something that works wonders. My mother was my first customer, and she fell in love with it immediately — it's because of her support that this product had the opportunity to launch at all.</p>
+        <p>Hand-mixed with natural shea butters and oils, this isn't just a body butter — it's a transformation you can feel from the very first touch. Rough, dry, tired skin gives way to something softer, smoother. Skin that glows from the inside out, and stays silky long after you've washed it away. You don't just wear Butterfly Nectar. You feel the difference. Because transformation looks good on you.</p>
+
+        <h3>What the butter offers</h3>
+        <div class="uses-grid">
+          <div class="use-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c3 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-7 6-10Z"/></svg>
+            <div>
+              <h4>Deep, lasting moisture</h4>
+              <p>Shea butter, sweet almond oil, and coconut oil team up on dry, rough patches like elbows, hands, and heels.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+            <div>
+              <h4>Everyday, full-body use</h4>
+              <p>Made for daily use, morning or night, on the whole body. Start with a patch test (see <a href="#safety" class="btn-line">Ingredients &amp; Safety</a>).</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m5 13 4 4L19 7"/></svg>
+            <div>
+              <h4>Botanical-rich blend</h4>
+              <p>Aloe, vitamin E, and plant extracts like rosemary, tea tree, and sage round out the formula.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <div>
+              <h4>Fast-absorbing finish</h4>
+              <p>Sinks in without a heavy or greasy after-feel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-paper">
+    <div class="wrap">
+      <div class="section-head ingredients-head">
+        <h2>Ingredients<img class="leaf leaf-ingredients" src="assets/decor/leaf-2.png" alt="" aria-hidden="true"></h2>
+        <p class="lede mt-0">The highlights are below. The complete list of every ingredient is in the <a href="#safety">Ingredients &amp; Safety</a> section.</p>
+      </div>
+      <table class="ingredient-table">
+        <thead>
+          <tr><th>Ingredient</th><th>Why it's included</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="ing-name">Shea butter</td><td class="ing-note">Rich, deep moisture for dry, rough patches</td></tr>
+          <tr><td class="ing-name">Sweet almond oil</td><td class="ing-note">Lightweight nourishment that softens and smooths skin</td></tr>
+          <tr><td class="ing-name">Coconut oil</td><td class="ing-note">Seals in moisture after application</td></tr>
+          <tr><td class="ing-name">Aloe leaf juice powder</td><td class="ing-note">Soothes and calms the skin</td></tr>
+          <tr><td class="ing-name">Vitamin E</td><td class="ing-note">Supports the skin barrier and helps preserve freshness</td></tr>
+          <tr><td class="ing-name">Tea tree &amp; rosemary</td><td class="ing-note">A touch of natural, clarifying care</td></tr>
+          <tr><td class="ing-name">Amber essential oil</td><td class="ing-note">The signature Butterfly Nectar scent</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:22px;"><a href="#safety" class="btn-line">See full ingredient safety &amp; usage guidelines</a></p>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="view" data-view="safety" data-title="Ingredients &amp; Safety — Butterfly Nectar" hidden>
+  <!-- INGREDIENTS & SAFETY -->
+  <section>
+    <div class="wrap">
+      <div class="safety-intro">
+        <div class="kicker">Ingredients &amp; Safety</div>
+        <h2 class="display">Everything worth<br>knowing before you use it.</h2>
+        <p class="lede">This section covers what's in Butterfly Nectar, how to use and store it safely, and who should check with a doctor first.</p>
+      </div>
+
+      <div class="safety-section">
+        <h3>Full ingredient list</h3>
+        <div>
+          <p>The complete ingredient list, in order from most to least:</p>
+          <p class="inci-list">Water (Aqua), Glycerin, Petrolatum, Dicaprylyl Ether, Dimethicone, Glyceryl Stearate, Cetyl Alcohol, Helianthus Annuus (Sunflower) Seed Oil, PEG-30 Stearate, Tocopheryl Acetate (Vitamin E), Dimethiconol, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Benzyl Alcohol, Phenoxyethanol, Prunus Amygdalus Dulcis (Sweet Almond) Oil, Propylene Glycol, Carbomer, Sodium Hydroxide, Aloe Barbadensis Leaf Juice Powder, Tocopherol (Vitamin E), BHT, Ricinus Communis (Castor) Seed Oil, Glycine Soja (Soybean) Oil, Hydrogenated Rapeseed Oil, Olea Europaea (Olive) Fruit Oil, Rosmarinus Officinalis (Rosemary) Leaf Extract, Rosmarinus Officinalis (Rosemary) Leaf Oil, Melaleuca Alternifolia (Tea Tree) Leaf Oil, Rubus Fruticosus (Blackberry) Fruit Extract, Ganoderma Lucidum (Mushroom) Extract, Equisetum Hyemale Leaf/Stem Extract, Salvia Officinalis (Sage) Leaf Extract, Urtica Dioica (Nettle) Extract, Achillea Millefolium Extract, Biotin, Butyrospermum Parkii (Shea Butter), Cocos Nucifera (Coconut) Oil, Amber Essential Oil, Turmeric.</p>
+          <p>The jar itself may carry only a shorter ingredient list. The full list may come on a separate ingredient card, or be available online only, so this section is the complete reference. If you have any allergies or sensitivities, please review the full list before use. If the formula ever changes, this section is updated to match.</p>
+        </div>
+      </div>
+
+      <div class="safety-section">
+        <h3>Common allergens</h3>
+        <div>
+          <p>Based on the ingredient list above, this product contains or is derived from:</p>
+          <ul>
+            <li><strong>Tree nut &amp; seed oils:</strong> sweet almond oil, shea butter, coconut oil, sunflower seed oil, castor seed oil, rapeseed oil</li>
+            <li><strong>Soy:</strong> soybean oil (Glycine Soja)</li>
+            <li><strong>Essential oils &amp; scent:</strong> amber essential oil, tea tree oil, and rosemary oil. Essential oils are a common cause of contact sensitivity in skin care</li>
+            <li><strong>Preservatives:</strong> benzyl alcohol, phenoxyethanol, BHT</li>
+            <li><strong>Botanical extracts:</strong> rosemary, sage, nettle, yarrow (Achillea Millefolium, related to ragweed and chamomile), horsetail, reishi mushroom, blackberry, turmeric</li>
+          </ul>
+          <p>If you have a known allergy or sensitivity to tree nuts, coconut, soy, essential oils, or any botanical listed above, please review the full ingredient list carefully, or speak with Imani directly, before using this product.</p>
+        </div>
+      </div>
+
+      <div class="safety-section">
+        <h3>Patch test first</h3>
+        <div>
+          <p>Before applying any new skin product broadly, we recommend a simple patch test:</p>
+          <ul>
+            <li>Apply a small amount of product (about the size of your fingertip) to a discreet area of skin, such as your inner arm, wrist, or leg.</li>
+            <li>Wait 48 hours without washing or disturbing the area, and watch for any signs of sensitivity.</li>
+            <li>Our products are thoughtfully crafted with natural ingredients. However, every skin type is unique and may react differently.</li>
+            <li>If redness, irritation, itching, or scaling occurs, discontinue use immediately. If symptoms persist, please consult a physician.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="safety-section">
+        <h3>How to use &amp; store</h3>
+        <div>
+          <p>When you're ready to use and save for later:</p>
+          <ul>
+            <li>Apply a small amount to clean, dry skin and massage in until absorbed.</li>
+            <li>For very dry areas (elbows, heels, hands), a slightly thicker layer can be left on overnight.</li>
+            <li>Store in a cool, dry place, away from direct sunlight and heat.</li>
+            <li>Keep the lid closed when not in use to protect freshness.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="safety-section">
+        <h3>When to check with a doctor</h3>
+        <div>
+          <p>Speak with a doctor or dermatologist before use if you:</p>
+          <ul>
+            <li>Are pregnant or nursing.</li>
+            <li>Have a diagnosed skin condition (eczema, psoriasis, dermatitis, or similar).</li>
+            <li>Have a known allergy to tree nuts, coconut, soy, essential oils, or any ingredient listed above. Reactions can be more frequent or more intense for known allergies than for general skin sensitivity.</li>
+          </ul>
+          <p>This product is scented and intended for adult use; young adults may also use it. <strong>Do not use on infants or young children.</strong></p>
+          <p>Discontinue use immediately if you notice redness, burning, itching, or irritation, and rinse the area with water. Seek medical attention if a reaction is severe or does not resolve.</p>
+        </div>
+      </div>
+
+      <div class="safety-section">
+        <h3>Cosmetic disclaimer</h3>
+        <div>
+          <div class="disclaimer-box">
+            <p>[Placeholder — still waiting on Imani's final, professionally reviewed disclaimer. This section will be replaced once that's ready.] Butterfly Nectar is a cosmetic body butter intended to moisturize and condition the skin. It is not a drug and is not intended to diagnose, treat, cure, or prevent any disease or medical condition.</p>
+            <p><strong>This product is not FDA approved.</strong> Statements on this website have not been evaluated by the Food and Drug Administration (FDA). Individual results may vary.</p>
+            <p>This product is handmade in small batches in a home-based or small production setting [placeholder: confirm facility description] and is not manufactured in a certified allergen-free facility.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="safety-section">
+        <h3>Report a problem</h3>
+        <div>
+          <div class="contact-card">
+            <p class="mt-0">If you experience an unexpected reaction after using this product, please stop use and let us know. It helps us keep every batch safe.</p>
+            <p><strong>Contact us at:</strong><br>
+            Email: <a href="mailto:shopbutterflynectar@gmail.com" class="btn-line">shopbutterflynectar@gmail.com</a><br>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-icon.png" alt="Butterfly Nectar icon">
+        <p>You don't just wear Butterfly Nectar. You feel the difference.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#safety">Ingredients &amp; Safety</a>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <a href="mailto:shopbutterflynectar@gmail.com">shopbutterflynectar@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <span class="social-link is-disabled" aria-disabled="true" title="Coming soon">Instagram</span>
+        <span class="social-link is-disabled" aria-disabled="true" title="Coming soon">TikTok</span>
+        <span class="social-link is-disabled" aria-disabled="true" title="Coming soon">Facebook</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Butterfly Nectar. All rights reserved.</span>
+      <span>Handmade in small batches</span>
+    </div>
+  </div>
+</footer>
+
+<div class="order-modal" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" hidden>
+  <div class="order-modal-backdrop" data-close-modal></div>
+  <div class="order-modal-card">
+    <img src="assets/logo-icon.png" alt="" class="order-modal-logo">
+    <h2 id="order-modal-title">Payment received!</h2>
+    <p class="order-modal-thanks" id="order-modal-thanks">Thank you for your order.</p>
+    <p>We'll process your order within <strong>72 hours</strong>. Thanks for shopping with us!</p>
+    <p class="order-modal-small">Questions? Email <a href="mailto:shopbutterflynectar@gmail.com" class="btn-line">shopbutterflynectar@gmail.com</a></p>
+    <button type="button" class="btn btn-primary" id="order-modal-close" data-close-modal>Continue shopping</button>
+  </div>
+</div>
+
+<div class="checkout-notice" id="checkout-notice" role="status" hidden></div>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+  <div class="cart-drawer-head">
+    <h3>Your cart</h3>
+    <div class="cart-head-actions">
+      <button class="cart-clear" id="cart-clear" type="button" hidden>Clear cart</button>
+      <button class="cart-close" id="cart-close" aria-label="Close cart" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-empty" id="cart-empty">
+    <p>Your cart is empty.</p>
+    <a href="#products" class="btn-line" id="cart-empty-link">Shop for Nectar</a>
+  </div>
+  <div class="cart-footer" id="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cart-subtotal-amount">$0.00</span>
+    </div>
+    <button class="btn btn-primary cart-checkout" id="cart-checkout" type="button">Checkout</button>
+    <p class="signup-note">Orders are processed within 72 hours of payment.<br>Prefer to order directly? Email <a href="mailto:shopbutterflynectar@gmail.com" class="btn-line">shopbutterflynectar@gmail.com</a></p>
+  </div>
+</aside>
+
+<script src="assets/shop-config.js"></script>
+<script src="script.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Netlify settings. The website itself is the files in the repo root (no build step);
+# the three checkout functions live in netlify/functions.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Keep backend source and docs from being served as web pages.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/test/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/STRIPE-SETUP.md"
+  to = "/index.html"
+  status = 404
+  force = true

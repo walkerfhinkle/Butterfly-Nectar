@@ -1,0 +1,15 @@
+{
+  "name": "butterfly-nectar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Butterfly Nectar website + Stripe checkout functions",
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "stripe": "^23.1.0"
+  }
+}
