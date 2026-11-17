@@ -581,20 +581,20 @@ footer.site-footer {
   align-items: center;
 }
 .portrait-frame {
+  margin: 0;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius);
-  background: linear-gradient(165deg, var(--coral-wash), var(--teal-wash));
-  border: 1px dashed #CBB89B;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--ink-soft);
-  text-align: center;
-  padding: 24px;
+  overflow: hidden;
+  background: var(--coral-wash);
+  box-shadow: 0 10px 30px rgba(18, 39, 71, 0.12);
 }
-.portrait-frame svg { width: 40px; height: 40px; opacity: 0.6; }
+.portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
 
 @media (max-width: 860px) {
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
