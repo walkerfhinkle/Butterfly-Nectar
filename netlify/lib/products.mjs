@@ -11,8 +11,6 @@
 // `npm test` fails if this file and assets/shop-config.js disagree.
 
 export const PRODUCTS = [
-  { id: "bn-1oz", name: "Butterfly Nectar — 1oz Jar", price: 930 },
-  { id: "bn-2oz", name: "Butterfly Nectar — 2oz Jar", price: 1488 },
   { id: "bn-4oz", name: "Butterfly Nectar — 4oz Jar", price: 2139 },
   { id: "bn-8oz", name: "Butterfly Nectar — 8oz Jar", price: 2790 }
 ];

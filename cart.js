@@ -17,6 +17,21 @@
   var CHECKOUT_ENDPOINT = "/api/create-checkout-session";
   var VERIFY_ENDPOINT = "/api/verify-session";
   var MAX_QTY = 20;
+  var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var lastAddedId = null;
+  var lastTotalQty = null;
+
+  function reduced() {
+    return motionQuery.matches;
+  }
+
+  function replay(el, className, ms) {
+    if (!el || reduced()) return;
+    el.classList.remove(className);
+    void el.offsetWidth;
+    el.classList.add(className);
+    setTimeout(function () { el.classList.remove(className); }, ms);
+  }
 
   function getCart() {
     try {
@@ -44,6 +59,7 @@
     qty = qty || 1;
     var cart = getCart();
     var existing = cart.find(function (item) { return item.id === id; });
+    lastAddedId = id;
     if (existing) {
       existing.qty = Math.min(MAX_QTY, existing.qty + qty);
     } else {
@@ -92,7 +108,12 @@
     if (countEl) {
       countEl.textContent = totalQty;
       countEl.hidden = totalQty === 0;
+      if (lastTotalQty !== null && totalQty > lastTotalQty) {
+        replay(countEl, "bump", 450);
+        replay(document.getElementById("cart-toggle"), "bump", 500);
+      }
     }
+    lastTotalQty = totalQty;
 
     if (clearEl) clearEl.hidden = cart.length === 0;
 
@@ -131,6 +152,14 @@
       );
     });
     itemsEl.innerHTML = rows.join("");
+    Array.prototype.forEach.call(itemsEl.querySelectorAll(".cart-item"), function (row, i) {
+      row.style.setProperty("--i", i);
+    });
+    if (lastAddedId) {
+      var added = itemsEl.querySelector('.cart-item[data-id="' + lastAddedId + '"]');
+      if (added && !reduced()) added.classList.add("is-new");
+      lastAddedId = null;
+    }
     if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
   }
 
@@ -139,7 +168,9 @@
     var overlay = document.getElementById("cart-overlay");
     var toggle = document.getElementById("cart-toggle");
     if (!drawer) return;
+    var wasOpen = drawer.classList.contains("open");
     drawer.classList.add("open");
+    if (!wasOpen) replay(drawer, "stagger", 800);
     if (overlay) overlay.classList.add("open");
     drawer.setAttribute("aria-hidden", "false");
     if (toggle) toggle.setAttribute("aria-expanded", "true");
@@ -193,13 +224,30 @@
   }
 
   var noticeTimer;
+  var noticeHideTimer;
+  function hideNotice() {
+    var notice = document.getElementById("checkout-notice");
+    if (!notice || notice.hidden) return;
+    if (reduced()) {
+      notice.hidden = true;
+      return;
+    }
+    notice.classList.add("is-leaving");
+    clearTimeout(noticeHideTimer);
+    noticeHideTimer = setTimeout(function () {
+      notice.hidden = true;
+      notice.classList.remove("is-leaving");
+    }, 250);
+  }
   function showNotice(message, ms) {
     var notice = document.getElementById("checkout-notice");
     if (!notice) return;
+    clearTimeout(noticeHideTimer);
+    notice.classList.remove("is-leaving");
     notice.textContent = message;
     notice.hidden = false;
     clearTimeout(noticeTimer);
-    noticeTimer = setTimeout(function () { notice.hidden = true; }, ms || 9000);
+    noticeTimer = setTimeout(hideNotice, ms || 9000);
   }
 
   // ----- centered "payment received" pop-up -----
@@ -217,10 +265,19 @@
   }
   function closeOrderModal() {
     var modal = document.getElementById("order-modal");
-    if (!modal || modal.hidden) return;
-    modal.hidden = true;
-    document.body.style.overflow = "";
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    if (!modal || modal.hidden || modal.classList.contains("is-closing")) return;
+    function finish() {
+      modal.hidden = true;
+      modal.classList.remove("is-closing");
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    if (reduced()) {
+      finish();
+      return;
+    }
+    modal.classList.add("is-closing");
+    setTimeout(finish, 200);
   }
 
   // After Stripe sends the shopper back (?checkout=success&session_id=... or ?checkout=cancelled).
@@ -290,9 +347,15 @@
         var cart = getCart();
         var item = cart.find(function (i) { return i.id === id; });
         if (!item) return;
-        if (btn.dataset.action === "increase") updateQty(id, Math.min(MAX_QTY, item.qty + 1));
-        if (btn.dataset.action === "decrease") updateQty(id, item.qty - 1);
-        if (btn.dataset.action === "remove") updateQty(id, 0);
+        var action = btn.dataset.action;
+        var removing = action === "remove" || (action === "decrease" && item.qty <= 1);
+        if (removing && !reduced()) {
+          row.classList.add("is-removing");
+          setTimeout(function () { updateQty(id, 0); }, 200);
+          return;
+        }
+        if (action === "increase") updateQty(id, Math.min(MAX_QTY, item.qty + 1));
+        if (action === "decrease") updateQty(id, item.qty - 1);
       });
     }
 
@@ -302,7 +365,10 @@
     }
     function setStepper(card, qty) {
       qty = Math.max(1, Math.min(MAX_QTY, qty));
-      card.querySelector(".qty-value").textContent = qty;
+      var valueEl = card.querySelector(".qty-value");
+      var changed = valueEl.textContent !== String(qty);
+      valueEl.textContent = qty;
+      if (changed) replay(valueEl, "bump", 260);
       card.querySelector('.qty-btn[data-step="-1"]').disabled = qty <= 1;
       card.querySelector('.qty-btn[data-step="1"]').disabled = qty >= MAX_QTY;
     }
@@ -321,6 +387,16 @@
         var qty = card ? stepperValue(card) : 1;
         addToCart(btn.getAttribute("data-id"), qty);
         if (card) setStepper(card, 1);
+        if (!reduced()) {
+          if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+          btn.textContent = "Added \u2713";
+          btn.classList.add("is-added");
+          clearTimeout(btn.addedTimer);
+          btn.addedTimer = setTimeout(function () {
+            btn.textContent = btn.dataset.label;
+            btn.classList.remove("is-added");
+          }, 1400);
+        }
       });
     });
 

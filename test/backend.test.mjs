@@ -20,7 +20,7 @@ function paidSession(overrides = {}) {
     payment_status: "paid",
     livemode: false,
     currency: "usd",
-    amount_total: 3720,
+    amount_total: 4929,
     payment_intent: "pi_test_999",
     customer_details: { name: "Jane Doe", email: "jane@example.com", phone: "+13175551234" },
     shipping_details: {
@@ -28,7 +28,7 @@ function paidSession(overrides = {}) {
       address: { line1: "123 Main St", line2: "Apt 4", city: "Noblesville", state: "IN", postal_code: "46060", country: "US" }
     },
     line_items: { data: [
-      { description: "Butterfly Nectar — 1oz Jar", quantity: 1, amount_total: 930 },
+      { description: "Butterfly Nectar — 4oz Jar", quantity: 1, amount_total: 2139 },
       { description: "Butterfly Nectar — 8oz Jar", quantity: 1, amount_total: 2790 }
     ] },
     ...overrides
@@ -62,21 +62,21 @@ test("front-end catalog (assets/shop-config.js) matches the server catalog", () 
 
 // ---- checkout session -----------------------------------------------------
 test("line items are re-priced from the server catalog, ignoring client prices", () => {
-  const items = buildLineItems([{ id: "bn-4oz", qty: 2, price: 1 }, { id: "bn-1oz", qty: 1 }]);
+  const items = buildLineItems([{ id: "bn-4oz", qty: 2, price: 1 }, { id: "bn-8oz", qty: 1 }]);
   assert.equal(items[0].price_data.unit_amount, 2139);
   assert.equal(items[0].quantity, 2);
-  assert.equal(items[1].price_data.unit_amount, 930);
+  assert.equal(items[1].price_data.unit_amount, 2790);
 });
 
 test("bad carts are rejected", () => {
-  for (const bad of [[], null, [{ id: "nope", qty: 1 }], [{ id: "bn-1oz", qty: 0 }], [{ id: "bn-1oz", qty: 21 }], [{ id: "bn-1oz", qty: 1.5 }], [{ id: "bn-1oz", qty: "abc" }]]) {
+  for (const bad of [[], null, [{ id: "nope", qty: 1 }], [{ id: "bn-4oz", qty: 0 }], [{ id: "bn-4oz", qty: 21 }], [{ id: "bn-4oz", qty: 1.5 }], [{ id: "bn-4oz", qty: "abc" }]]) {
     assert.throws(() => buildLineItems(bad), HttpError, JSON.stringify(bad));
   }
 });
 
 test("checkout session asks for address + phone and shows the 72-hour message", async () => {
   const stripe = stubStripe();
-  const { url } = await createCheckoutSession({ stripe, items: [{ id: "bn-2oz", qty: 3 }], siteUrl: "https://butterflynectar.shop" });
+  const { url } = await createCheckoutSession({ stripe, items: [{ id: "bn-8oz", qty: 3 }], siteUrl: "https://butterflynectar.shop" });
   const p = stripe.calls.created;
   assert.match(url, /^https:\/\/checkout\.stripe\.com/);
   assert.equal(p.mode, "payment");
@@ -99,10 +99,10 @@ test("verify-session reports paid + first name only when actually paid", async (
 // ---- email content --------------------------------------------------------
 test("order email leads with payment received + 72 hours, and includes all order details", () => {
   const { subject, text, html, replyTo } = buildOrderEmail(paidSession(), new Date("2026-11-02T20:00:00Z"));
-  assert.match(subject, /Payment received: \$37\.20 from Jane Doe/);
+  assert.match(subject, /Payment received: \$49\.29 from Jane Doe/);
   assert.match(text.split("\n")[0], /PAYMENT RECEIVED.*72-hour turnaround.*Thursday, November 5/);
   assert.match(html, /Payment received/);
-  for (const needle of ["Jane Doe", "jane@example.com", "+13175551234", "123 Main St", "Apt 4", "Noblesville, IN 46060", "1oz Jar", "8oz Jar", "$37.20", "pi_test_999"]) {
+  for (const needle of ["Jane Doe", "jane@example.com", "+13175551234", "123 Main St", "Apt 4", "Noblesville, IN 46060", "4oz Jar", "8oz Jar", "$49.29", "pi_test_999"]) {
     assert.ok(text.includes(needle), `text missing ${needle}`);
     assert.ok(html.includes(needle), `html missing ${needle}`);
   }
@@ -179,7 +179,7 @@ test("forged or tampered requests are rejected with 400 and send nothing", async
   assert.equal(forged.sent.length, 0);
 
   const { payload, signature } = signedEvent("checkout.session.completed", paidSession());
-  await assert.rejects(handleStripeWebhook({ stripe: stubStripe(paidSession()), rawBody: payload.replace("3720", "1"), signature, webhookSecret: SECRET, sendOrderEmail: async () => { throw new Error("should not send"); } }), { status: 400 });
+  await assert.rejects(handleStripeWebhook({ stripe: stubStripe(paidSession()), rawBody: payload.replace("4929", "1"), signature, webhookSecret: SECRET, sendOrderEmail: async () => { throw new Error("should not send"); } }), { status: 400 });
 });
 
 test("unrelated events are acknowledged without emailing", async () => {
